@@ -1,0 +1,119 @@
+/* ====================== gestion de l'animation sur les liens =========================*/
+.link::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0%;
+    height: 4px ;
+    background-image:linear-gradient(to right, rgb(151, 144, 144), rgba(252, 234, 16, 0.7));
+    border-radius: 15px;
+    /* transform: scale(0); */
+    transition: all 0.2s ease-in-out; 
+}
+.link:hover::after{
+    width: 100%;
+    /* transform: scale(1); */
+}
+/* gestion de le decor des titre */
+.content-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-blue);
+    position: relative;
+}
+.before{
+    position: relative;
+}
+.before::after{
+    position: absolute;
+    top: -5px;
+    /* right:5%; */
+    transform: translateX(-105px);
+    content: "";
+    width: 100px;
+    height: 2px;
+    background-color: rgba(252, 234, 16, 0.7);
+}
+.before::before{
+    position: absolute;
+    top: -1px;
+    /* right:5%; */
+    transform: translateX(-105px);
+    content: "";
+    width: 100px;
+    height: 2px;
+    background-color:  rgba(252, 234, 16, 0.7);
+}
+.after::after{
+    position: absolute;
+    top:13px;
+    transform: translateX(5px);
+    content: "";
+    width: 100px;
+    height: 2px;
+    background-color:  rgba(252, 234, 16, 0.7);
+}
+.after::before{
+    position: absolute;
+    top: 16px;
+    transform: translateX(5px);
+    content: "";
+    width: 100px;
+    height: 2px;
+    background-color:  rgba(252, 234, 16, 0.7);
+}
+.content-info-profils{
+    transform: scale(1);
+    transition: transform 1s ease-in-out;
+}
+.content-info-profils:hover{
+    transform: scale(1.1);
+}
+.animation{
+    transform: scale(1);
+    transition: all 1s ease-in-out;
+}
+  
+.animation.active{
+    transform: scale(1.1);
+}
+.content-info{
+    transition:height 0.36s ease-in;
+
+}
+.content-info-profils:hover .content-info{
+    height: 110px;
+}
+.content-info-profils:hover .content-info .name{
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(0);
+}
+.content-info-profils:hover .content-info .titre{
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(0);
+
+}
+.menu{
+    width:250px;
+    height: 0px;
+    transition: height 1s ease;
+    opacity: 0;
+
+}
+.menu.active{
+    width: 250px ;
+    opacity: 1;
+    height:210px;
+}
+.menu.unactive{
+    width: 250px ;
+    opacity: 0;
+    height:0px;
+}
+
+
+
+

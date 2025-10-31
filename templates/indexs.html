@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détecteur de Plagiat</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Analyse de Similarité</h1>
+        
+        {% if error %}
+        <div class="error-box">
+            <p>Erreur : {{ error }}</p>
+        </div>
+        {% endif %}
+        
+        <form method="POST" action="/compare">
+            <div class="text-group">
+                <label>Texte 1:</label>
+                <textarea name="texte1" required></textarea>
+            </div>
+            
+            <div class="text-group">
+                <label>Texte 2:</label>
+                <textarea name="texte2" required></textarea>
+            </div>
+            
+            <button type="submit">Comparer</button>
+        </form>
+        
+        {% if result is not none %}
+        <div class="result">
+            <h3>Score: {{ "%.2f"|format(result) }}%</h3>
+            <div class="verdict">
+                {% if result > 70 %}
+                <p class="high">⚠ Similarité élevée (risque de plagiat)</p>
+                {% elif result > 40 %}
+                <p class="medium">Similarité modérée</p>
+                {% else %}
+                <p class="low">Similarité faible</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
